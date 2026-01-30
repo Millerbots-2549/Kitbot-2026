@@ -85,20 +85,25 @@ public class RobotContainer {
     // value). The X-axis is also inverted so a positive value (stick to the right)
     // results in clockwise rotation (front of the robot turning right). Both axes
     // are also scaled down so the rotation is more easily controllable.
-    operatorController.leftTrigger().whileTrue(
+    driverController.leftTrigger().whileTrue(
         driveSubsystem.driveArcade(
-            () -> -operatorController.getLeftY() * -DRIVE_SCALING ,
-            () -> -operatorController.getRightX() * -ROTATION_SCALING));
+            () -> -driverController.getLeftY() * -DRIVE_SCALING ,
+            () -> -driverController.getRightX() * -ROTATION_SCALING));
 
-    operatorController.rightTrigger().whileTrue(
+    driverController.rightTrigger().whileTrue(
         driveSubsystem.driveArcade(
-            () -> -operatorController.getLeftY() * DRIVE_SCALING * 0.5,
-            () -> -operatorController.getRightX() * ROTATION_SCALING * 0.5));
+            () -> -driverController.getLeftY() * DRIVE_SCALING * 0.5,
+            () -> -driverController.getRightX() * ROTATION_SCALING * 0.5));
+
+                driverController.leftBumper().whileTrue(
+        driveSubsystem.driveArcade(
+            () -> -driverController.getLeftY() * DRIVE_SCALING,
+            () -> driverController.getLeftX() * ROTATION_SCALING));
 
     driveSubsystem.setDefaultCommand(
         driveSubsystem.driveArcade(
-            () -> -operatorController.getLeftY() * DRIVE_SCALING,
-            () -> -operatorController.getRightX() * ROTATION_SCALING));
+            () -> -driverController.getLeftY() * DRIVE_SCALING,
+            () -> -driverController.getRightX() * ROTATION_SCALING));
   }
 
   /**
