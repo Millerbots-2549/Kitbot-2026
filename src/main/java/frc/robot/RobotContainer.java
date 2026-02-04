@@ -97,8 +97,8 @@ public class RobotContainer {
 
                 driverController.leftBumper().whileTrue(
         driveSubsystem.driveArcade(
-            () -> -driverController.getLeftY() * DRIVE_SCALING,
-            () -> driverController.getLeftX() * -ROTATION_SCALING));
+            () -> -driverController.getLeftY() * DRIVE_SCALING * -1.0,
+            () -> -driverController.getLeftX() * ROTATION_SCALING * -1.0));
 
     driveSubsystem.setDefaultCommand(
         driveSubsystem.driveArcade(
