@@ -68,9 +68,9 @@ public class CANFuelSubsystem extends SubsystemBase {
 
   // A method to set the rollers to values for launching.
   public void launch() {
-    feederRoller.set(1);
+    feederRoller.setVoltage(10.75);
     intakeLauncherRoller
-        .set(6.25);
+        .setVoltage(12);
   }
 
   // A method to stop the rollers

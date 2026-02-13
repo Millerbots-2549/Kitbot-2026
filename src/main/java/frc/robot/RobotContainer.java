@@ -88,7 +88,7 @@ public class RobotContainer {
     driverController.leftTrigger().whileTrue(
         driveSubsystem.driveArcade(
             () -> -driverController.getLeftY() * -DRIVE_SCALING ,
-            () -> -driverController.getRightX() * -ROTATION_SCALING));
+            () -> -driverController.getRightX() * 0.8));
 
     driverController.rightTrigger().whileTrue(
         driveSubsystem.driveArcade(
